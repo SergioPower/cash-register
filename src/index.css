@@ -1,40 +1,173 @@
 body{
-  background-color:#9BEB54;
-  font-family:sans-serif;
-}
-main{
+  font-family: Roboto, Arial, sans-serif;
+  background: linear-gradient(to bottom, #d7e0ea, #c1ccd6);
+  color: #333;
   display: flex;
-  flex-direction:column;
-  text-align:center;
-  align-items:center;
-}
-.cash_screen__border{
-  width: 300px;
-  height: 200px;
-  background-color: #373972;
-  border: 5px solid black;
-  display: flex; /* Usamos flexbox */
-  justify-content: center; /* Centra horizontalmente */
-  align-items: center; /* Centra verticalmente */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
-.cash_screen{
-  width:90%;
-  height:88%;
-  background-color:#509EE9;
-  margin:auto;
-  border:4px solid dimgray;
-  display:flex;
+main{
+  background: #f4f4f4;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgb(0 0 0 / 20%);
+  width: 450px;
+  text-align: center;
+}
+
+main > h1 {
+  font-size: 26px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #07c;
+  text-shadow: 0 1px 2px rgb(0 0 0 / 20%);
+}
+
+/* Dinero disponible */
+.money-available {
+  background: #111;
+  border: 2px solid #07c;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  color: #0f0;
+  box-shadow: inset 0 4px 6px rgb(0 0 0 / 50%), 0 4px 6px rgb(0 0 0 / 20%);
+  font-family: "Courier New", monospace;
+}
+
+.money-available h2 {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff;
+}
   
+.money-tray {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
 }
-
-.cashRegister{ //dinero en caja
   
+.denomination {
+  background: #222;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #0f0;
+  box-shadow: inset 0 2px 4px rgb(0 0 0 / 50%), 0 2px 4px rgb(0 0 0 / 20%);
 }
-.cashInput{
   
+.denomination .quantity {
+  font-size: 14px;
+  font-weight: normal;
+  color: #fff;
+  text-shadow: 0 0 5px #0f0;
 }
 
+/* input */
+.input-payment {
+  width: calc(100% - 20px);
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  background: #fff;
+  color: #333;
+  transition: border 0.3s;
+}
+  
+.input-payment:focus {
+  border-color: #07c;
+  outline: none;
+}
 
+/* total */
+.pantalla-total {
+  background: #222;
+  border-radius: 10px;
+  color: #0f0;
+  font-size: 22px;
+  font-weight: bold;
+  padding: 15px;
+  margin-bottom: 20px;
+  text-align: center;
+  box-shadow: inset 0 4px 6px rgb(0 0 0 / 30%);
+}
 
+/* button */
+.button {
+  width: calc(100% - 20px);
+  background: #00a859;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background 0.3s, transform 0.2s;
+}
+  
+.button:hover {
+  background: #007d45;
+}
+  
+.button:active {
+  transform: scale(0.98);
+}
 
+.section-notices {
+  margin: 20px 0;
+  padding: 10px;
+  border: 2px solid rgb(0 119 204 / 34.2%);
+  border-radius: 10px;
+  background: #f0f4ff;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 4px 6px rgb(0 0 0 / 10%);
+}
+
+.section-notices .status {
+  margin: 0;
+  padding: 10px 0;
+}
+  
+.section-notices .status.error {
+  color: #c00;
+}
+  
+.section-notices .status.warning {
+  color: #f80;
+}
+  
+.section-notices .status.success {
+  color: #070;
+}
+  
+/* Ticket */
+.ticket {
+  background: #fff;
+  color: #333;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 20px;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  text-align: left;
+  height: 120px;
+  overflow-y: auto;
+  border: 2px dashed #07c;
+  box-shadow: inset 0 4px 6px rgb(0 0 0 / 10%);
+}

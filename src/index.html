@@ -2,32 +2,55 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cash register</title>
-  <link rel="stylesheet" href="styles.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cash register</title>
+	<link rel="stylesheet" href="index.css">
 
 </head>
 
 <body>
-  <main>
-    <h1>Cash Register</h1>
+	<main>
+		<h1>Cash Register</h1>
 
-    <p id="change-due"></p>
-    <input type="number" id="cash" class="cashInput">
-    <button id="purchase-btn">Purchase</button>
 
-    <div class="cash_register_drawing">
-      <div class="cash_screen__border">
-        <div class="cash_screen">
-          <div class="cashRegister"></div>
+		<div class="money-available">
+			<h2>Cash on hand</h2>
+			<div class="money-tray">
+				<div class="denomination">
+					$1,000<br><span class="quantity">2 billetes</span>
+				</div>
+				<div class="denomination">
+					$500<br><span class="quantity">3 billetes</span>
+				</div>
+			</div>
+			<!-- ... otras denominaciones -->
+		</div>
 
-        </div>
+		<!-- Entrada de pago -->
+		<input type="number" id="cash" class="input-payment" placeholder="Amount paid by the customer">
 
-      </div>
-    </div>
-  </main>
-  <script src="script.js"></script>
+		<!-- Pantalla del total -->
+		<div class="pantalla-total">
+			Total: $<span id="value"></span>
+		</div>
+
+		<!-- Botón para dar cambio -->
+		<button id="button" class="button">Purchase</button>
+
+		<!-- Sección de avisos -->
+		<div class="section-notices">
+			<p class="status" id="notice-status">Welcome, ready to operate.</p>
+		</div>
+
+		<!-- Ticket -->
+		<div class="ticket">
+			<p><strong>Purchase Ticket:</strong></p>
+			<p id="change-due"></p>
+		</div>
+
+	</main>
+	<script src="index.js"></script>
 </body>
 
 </html>
