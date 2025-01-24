@@ -10,9 +10,11 @@ const cid = [
   ["TWENTY", 60],
   ["ONE HUNDRED", 100]
 ];
+
 document.getElementById("value").textContent = `${price}`;
 const $status = document.getElementById("notice-status");
 const $changeDue = document.getElementById("change-due");
+const $ticket = document.getElementById("ticket");
 
 const updateStatus = (type) => {
   $status.classList.remove("error", "warning", "success");
@@ -39,9 +41,7 @@ const updateStatus = (type) => {
 };
 
 const calculateChange = cash => {
-  // sacar el cambio
   let change = cash - price;
-
   const denominations = {
     PENNY: 0.01,
     NICKEL: 0.05,
@@ -74,7 +74,7 @@ const calculateChange = cash => {
 
         if (allZero && change === 0) {
           updateStatus("error");
-		  $changeDue.textContent = ` ${changeReturn.map(item => `${item[0]}: $${item[1]}`).join(" ")}`;
+		  $changeDue.textContent = changeReturn.map(item => `${item[0]}: $${item[1]}`).join(" ");
           return;
         }
       }
@@ -87,19 +87,26 @@ const calculateChange = cash => {
     updateStatus("warning");
   } else {
     updateStatus("success");
-    $changeDue.textContent = `${changeReturn.map(item => `${item[0]}: $${item[1]}`).join(" ")}`;
+    $changeDue.innerHTML = changeReturn.map(item => `${item[0]}: $${item[1]}`).join("<br>");
   }
 };
 
 const updateMoneyTray = () => {
-
+  cid.forEach(([denomination, amount]) => {
+    const className = denomination.toLowerCase().replace(" ", "-");
+    const element = document.querySelector(`.${className}`);
+    if (element) {
+      element.textContent = `$${amount.toFixed(2)}`;
+    }
+  });
 };
+
+updateMoneyTray();
 document.getElementById("button").addEventListener("click", () => {
   const cashInput = document.getElementById("cash");
 
   const cash = Number(cashInput.value);
 
-  // Le falta dinero al cliente
   if (cash < price) {
     alert("Customer does not have enough money to purchase the item");
     return;
@@ -107,7 +114,9 @@ document.getElementById("button").addEventListener("click", () => {
     $changeDue.textContent = "No change due - customer paid with exact cash.";
     return;
   } else {
+    $ticket.classList.remove("hide");
     calculateChange(cash);
+    updateMoneyTray();
   }
   cashInput.value = "";
 });
