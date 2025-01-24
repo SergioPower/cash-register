@@ -12,4 +12,15 @@ Este proyecto simula un sistema de pago en un punto de venta. Calcula el cambio 
 - Muestra un mensaje si no hay suficiente cambio disponible.
 
 ## Ejemplo de Uso
-**Entrada:
+**Entrada**:
+- Toal de la compra 45.50
+- Pago del cliente: 100
+  
+**Salida**:
+```
+  Cambio total: $54.50
+  Desglose:
+  TWENTY: $40.00
+  TEN: $10.00
+  QUARTER: $4.50
+```
