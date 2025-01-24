@@ -1,4 +1,4 @@
-const price = 1.87;
+const price = 45.50;
 const cid = [
   ["PENNY", 1.01],
   ["NICKEL", 2.05],
